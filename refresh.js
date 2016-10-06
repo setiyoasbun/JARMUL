@@ -3,21 +3,19 @@ var now = $('#itung').val();
 
 function updateFeed(){
 	$.ajax({
-		url: 'tarik-data.php',
+		url: 'coba.php',
 		success: function(a){
 			$('#cek').html(a);
 		}
 	});
-	akhir =  $('#itung').val();
-	
+	akhir =  $('#itung').val();	
 }
+	console.log("now:",now);
+	console.log("akhir:",akhir);
 
-console.log("now:",now);
-console.log("akhir:",akhir);
+	t = setInterval("updateFeed();", 500 );
 
-t = setInterval("updateFeed();", 500 );
-
-if(akhir != now){
+	if(akhir != now){
 	window.location.href = "akhir.php";
 
 }

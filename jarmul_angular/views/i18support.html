@@ -1,0 +1,432 @@
+
+<!-- saved from url=(0073)http://webapplayers.com/inspinia_admin-v2.5/Angular/views/i18support.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>i18 support</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="http://webapplayers.com/inspinia_admin-v2.5/Angular/views/index.html">Home</a>
+            </li>
+            <li>
+                <a>Miscellaneous</a>
+            </li>
+            <li class="active">
+                <strong>i18 support</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+
+        <div class="col-lg-8">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>i18next</h5>
+                </div>
+
+                <div class="ibox-content" ng-controller="translateCtrl">
+
+
+                    <p>
+                        <strong>i18next</strong> is a full-featured i18n javascript library for translating your webapplication.
+                    </p>
+
+                    <h4>
+                        Example demo text
+                    </h4>
+                    <div class="i18container">
+                        <span>{{ 'DEMO' | translate }}</span>
+                    </div>
+
+                    <h5>
+                        You can change the language of demo text as well as the menu with simple function fire on buttons click. Try it:
+                    </h5>
+
+
+                    <a class="btn btn-white set_en" ng-click="changeLanguage(&#39;en&#39;)"><img src="./i18support_files/United-States.png"> EN</a>
+                    <a class="btn btn-white set_es" ng-click="changeLanguage(&#39;es&#39;)"><img src="./i18support_files/Spain.png"> ES</a>
+
+
+
+                </div>
+            </div>
+
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>i18next configuration</h5>
+                </div>
+
+                <div class="ibox-content">
+
+
+                    <h3>Step 1</h3>
+                    <p>
+                        To add i18 support for your app you need to define what text you would like to translate. The best way to define your text is to store it in external config file.
+                        For example:
+                    </p>
+
+                            <h5>translations.js</h5>
+                            <pre>function config($translateProvider) {
+
+    $translateProvider
+        .translations('en', {
+
+            // Define all menu elements
+            DASHBOARD: 'Dashboard',
+            GRAPHS: 'Graphs',
+            MAILBOX: 'Mailbox',
+
+        })
+        .translations('es', {
+
+            // Define all menu elements
+            DASHBOARD: 'Salpicadero',
+            GRAPHS: 'Gráficos',
+            MAILBOX: 'El correo',
+        });
+
+    $translateProvider.preferredLanguage('en');
+
+}</pre>
+
+
+                    <h3>Step 2</h3>
+                    <p>
+                        Next you need to add html indicators in all place you want to use i18.
+                    </p>
+<pre>
+    &lt;span &gt; { { 'MISCELLANEOUS' | translate } } &lt;/span&gt;
+
+</pre>
+
+                    <h3>Step 3</h3>
+                    <p>
+                        Next you need to add plugin module to your main app module:
+                    </p>
+
+                            <pre> */
+(function () {
+    angular.module('inspinia', [
+        'pascalprecht.translate',       // Angular Translate
+    ])
+})();</pre>
+
+                    <h3>Step 4</h3>
+                    <p>
+                        After that if you want to change the language you just need to add buttons and fire the $translate.use(langKey) function.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>
+                                HTML markup
+                            </h4>
+                                    <pre>&lt;a class="btn btn-white set_en" ng-click="changeLanguage('en')" &gt; Set EN language&lt;/a&gt;
+
+&lt;a class="btn btn-white set_es" ng-click="changeLanguage('ns')" &gt; Set ES language&lt;/a&gt;</pre>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>
+                                Javascript code
+                            </h4>
+                                    <pre>function translateCtrl($translate, $scope) {
+    $scope.changeLanguage = function (langKey) {
+        $translate.use(langKey);
+        $scope.language = langKey;
+    };
+}</pre>
+
+                        </div>
+                    </div>
+
+                    <p>
+                        More info about specific function and configuration options you can find on <a target="_blank" href="https://angular-translate.github.io/"> official angular-translate documentation.</a>
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>250 flags</h5>
+                </div>
+                <div class="ibox-content text-center">
+                    <p>
+                        Set of the 780 flag icons for all countries. All flags are avalible with 16x16, 32x32 and 64x64 size.
+                    </p>
+                    <div class="flags">
+                        <img src="./i18support_files/Abkhazia.png" alt="flag">
+                        <img src="./i18support_files/Afghanistan.png" alt="flag">
+                        <img src="./i18support_files/Aland.png" alt="flag">
+                        <img src="./i18support_files/Albania.png" alt="flag">
+                        <img src="./i18support_files/Algeria.png" alt="flag">
+                        <img src="./i18support_files/American-Samoa.png" alt="flag">
+                        <img src="./i18support_files/Andorra.png" alt="flag">
+                        <img src="./i18support_files/Angola.png" alt="flag">
+                        <img src="./i18support_files/Anguilla.png" alt="flag">
+                        <img src="./i18support_files/Antarctica.png" alt="flag">
+                        <img src="./i18support_files/Antigua-and-Barbuda.png" alt="flag">
+                        <img src="./i18support_files/Argentina.png" alt="flag">
+                        <img src="./i18support_files/Armenia.png" alt="flag">
+                        <img src="./i18support_files/Aruba.png" alt="flag">
+                        <img src="./i18support_files/Australia.png" alt="flag">
+                        <img src="./i18support_files/Austria.png" alt="flag">
+                        <img src="./i18support_files/Azerbaijan.png" alt="flag">
+                        <img src="./i18support_files/Bahamas.png" alt="flag">
+                        <img src="./i18support_files/Bahrain.png" alt="flag">
+                        <img src="./i18support_files/Bangladesh.png" alt="flag">
+                        <img src="./i18support_files/Barbados.png" alt="flag">
+                        <img src="./i18support_files/Basque-Country.png" alt="flag">
+                        <img src="./i18support_files/Belarus.png" alt="flag">
+                        <img src="./i18support_files/Belgium.png" alt="flag">
+                        <img src="./i18support_files/Belize.png" alt="flag">
+                        <img src="./i18support_files/Benin.png" alt="flag">
+                        <img src="./i18support_files/Bermuda.png" alt="flag">
+                        <img src="./i18support_files/Bhutan.png" alt="flag">
+                        <img src="./i18support_files/Bolivia.png" alt="flag">
+                        <img src="./i18support_files/Bosnia-and-Herzegovina.png" alt="flag">
+                        <img src="./i18support_files/Botswana.png" alt="flag">
+                        <img src="./i18support_files/Brazil.png" alt="flag">
+                        <img src="./i18support_files/British-Antarctic-Territory.png" alt="flag">
+                        <img src="./i18support_files/British-Virgin-Islands.png" alt="flag">
+                        <img src="./i18support_files/Brunei.png" alt="flag">
+                        <img src="./i18support_files/Bulgaria.png" alt="flag">
+                        <img src="./i18support_files/Burkina-Faso.png" alt="flag">
+                        <img src="./i18support_files/Burundi.png" alt="flag">
+                        <img src="./i18support_files/Cambodia.png" alt="flag">
+                        <img src="./i18support_files/Cameroon.png" alt="flag">
+                        <img src="./i18support_files/Canada.png" alt="flag">
+                        <img src="./i18support_files/Canary-Islands.png" alt="flag">
+                        <img src="./i18support_files/Cape-Verde.png" alt="flag">
+                        <img src="./i18support_files/Cayman-Islands.png" alt="flag">
+                        <img src="./i18support_files/Central-African-Republic.png" alt="flag">
+                        <img src="./i18support_files/Chad.png" alt="flag">
+                        <img src="./i18support_files/Chile.png" alt="flag">
+                        <img src="./i18support_files/China.png" alt="flag">
+                        <img src="./i18support_files/Christmas-Island.png" alt="flag">
+                        <img src="./i18support_files/Cocos-Keeling-Islands.png" alt="flag">
+                        <img src="./i18support_files/Colombia.png" alt="flag">
+                        <img src="./i18support_files/Commonwealth.png" alt="flag">
+                        <img src="./i18support_files/Comoros.png" alt="flag">
+                        <img src="./i18support_files/Cook-Islands.png" alt="flag">
+                        <img src="./i18support_files/Costa-Rica.png" alt="flag">
+                        <img src="./i18support_files/Cote-dIvoire.png" alt="flag">
+                        <img src="./i18support_files/Croatia.png" alt="flag">
+                        <img src="./i18support_files/Cuba.png" alt="flag">
+                        <img src="./i18support_files/Curacao.png" alt="flag">
+                        <img src="./i18support_files/Cyprus.png" alt="flag">
+                        <img src="./i18support_files/Czech-Republic.png" alt="flag">
+                        <img src="./i18support_files/Democratic-Republic-of-the-Congo.png" alt="flag">
+                        <img src="./i18support_files/Denmark.png" alt="flag">
+                        <img src="./i18support_files/Djibouti.png" alt="flag">
+                        <img src="./i18support_files/Dominica.png" alt="flag">
+                        <img src="./i18support_files/Dominican-Republic.png" alt="flag">
+                        <img src="./i18support_files/East-Timor.png" alt="flag">
+                        <img src="./i18support_files/Ecuador.png" alt="flag">
+                        <img src="./i18support_files/Egypt.png" alt="flag">
+                        <img src="./i18support_files/El-Salvador.png" alt="flag">
+                        <img src="./i18support_files/England.png" alt="flag">
+                        <img src="./i18support_files/Equatorial-Guinea.png" alt="flag">
+                        <img src="./i18support_files/Eritrea.png" alt="flag">
+                        <img src="./i18support_files/Estonia.png" alt="flag">
+                        <img src="./i18support_files/Ethiopia.png" alt="flag">
+                        <img src="./i18support_files/European-Union.png" alt="flag">
+                        <img src="./i18support_files/Falkland-Islands.png" alt="flag">
+                        <img src="./i18support_files/Faroes.png" alt="flag">
+                        <img src="./i18support_files/Fiji.png" alt="flag">
+                        <img src="./i18support_files/Finland.png" alt="flag">
+                        <img src="./i18support_files/France.png" alt="flag">
+                        <img src="./i18support_files/French-Polynesia.png" alt="flag">
+                        <img src="./i18support_files/French-Southern-Territories.png" alt="flag">
+                        <img src="./i18support_files/Gabon.png" alt="flag">
+                        <img src="./i18support_files/Gambia.png" alt="flag">
+                        <img src="./i18support_files/Georgia.png" alt="flag">
+                        <img src="./i18support_files/Germany.png" alt="flag">
+                        <img src="./i18support_files/Ghana.png" alt="flag">
+                        <img src="./i18support_files/Gibraltar.png" alt="flag">
+                        <img src="./i18support_files/GoSquared.png" alt="flag">
+                        <img src="./i18support_files/Greece.png" alt="flag">
+                        <img src="./i18support_files/Greenland.png" alt="flag">
+                        <img src="./i18support_files/Grenada.png" alt="flag">
+                        <img src="./i18support_files/Guam.png" alt="flag">
+                        <img src="./i18support_files/Guatemala.png" alt="flag">
+                        <img src="./i18support_files/Guernsey.png" alt="flag">
+                        <img src="./i18support_files/Guinea-Bissau.png" alt="flag">
+                        <img src="./i18support_files/Guinea.png" alt="flag">
+                        <img src="./i18support_files/Guyana.png" alt="flag">
+                        <img src="./i18support_files/Haiti.png" alt="flag">
+                        <img src="./i18support_files/Honduras.png" alt="flag">
+                        <img src="./i18support_files/Hong-Kong.png" alt="flag">
+                        <img src="./i18support_files/Hungary.png" alt="flag">
+                        <img src="./i18support_files/Iceland.png" alt="flag">
+                        <img src="./i18support_files/India.png" alt="flag">
+                        <img src="./i18support_files/Indonesia.png" alt="flag">
+                        <img src="./i18support_files/Iran.png" alt="flag">
+                        <img src="./i18support_files/Iraq.png" alt="flag">
+                        <img src="./i18support_files/Ireland.png" alt="flag">
+                        <img src="./i18support_files/Isle-of-Man.png" alt="flag">
+                        <img src="./i18support_files/Israel.png" alt="flag">
+                        <img src="./i18support_files/Italy.png" alt="flag">
+                        <img src="./i18support_files/Jamaica.png" alt="flag">
+                        <img src="./i18support_files/Japan.png" alt="flag">
+                        <img src="./i18support_files/Jersey.png" alt="flag">
+                        <img src="./i18support_files/Jordan.png" alt="flag">
+                        <img src="./i18support_files/Kazakhstan.png" alt="flag">
+                        <img src="./i18support_files/Kenya.png" alt="flag">
+                        <img src="./i18support_files/Kiribati.png" alt="flag">
+                        <img src="./i18support_files/Kosovo.png" alt="flag">
+                        <img src="./i18support_files/Kuwait.png" alt="flag">
+                        <img src="./i18support_files/Kyrgyzstan.png" alt="flag">
+                        <img src="./i18support_files/Laos.png" alt="flag">
+                        <img src="./i18support_files/Latvia.png" alt="flag">
+                        <img src="./i18support_files/Lebanon.png" alt="flag">
+                        <img src="./i18support_files/Lesotho.png" alt="flag">
+                        <img src="./i18support_files/Liberia.png" alt="flag">
+                        <img src="./i18support_files/Libya.png" alt="flag">
+                        <img src="./i18support_files/Liechtenstein.png" alt="flag">
+                        <img src="./i18support_files/Lithuania.png" alt="flag">
+                        <img src="./i18support_files/Luxembourg.png" alt="flag">
+                        <img src="./i18support_files/Macau.png" alt="flag">
+                        <img src="./i18support_files/Macedonia.png" alt="flag">
+                        <img src="./i18support_files/Madagascar.png" alt="flag">
+                        <img src="./i18support_files/Malawi.png" alt="flag">
+                        <img src="./i18support_files/Malaysia.png" alt="flag">
+                        <img src="./i18support_files/Maldives.png" alt="flag">
+                        <img src="./i18support_files/Mali.png" alt="flag">
+                        <img src="./i18support_files/Malta.png" alt="flag">
+                        <img src="./i18support_files/Mars.png" alt="flag">
+                        <img src="./i18support_files/Marshall-Islands.png" alt="flag">
+                        <img src="./i18support_files/Martinique.png" alt="flag">
+                        <img src="./i18support_files/Mauritania.png" alt="flag">
+                        <img src="./i18support_files/Mauritius.png" alt="flag">
+                        <img src="./i18support_files/Mayotte.png" alt="flag">
+                        <img src="./i18support_files/Mexico.png" alt="flag">
+                        <img src="./i18support_files/Micronesia.png" alt="flag">
+                        <img src="./i18support_files/Moldova.png" alt="flag">
+                        <img src="./i18support_files/Monaco.png" alt="flag">
+                        <img src="./i18support_files/Mongolia.png" alt="flag">
+                        <img src="./i18support_files/Montenegro.png" alt="flag">
+                        <img src="./i18support_files/Montserrat.png" alt="flag">
+                        <img src="./i18support_files/Morocco.png" alt="flag">
+                        <img src="./i18support_files/Mozambique.png" alt="flag">
+                        <img src="./i18support_files/Myanmar.png" alt="flag">
+                        <img src="./i18support_files/NATO.png" alt="flag">
+                        <img src="./i18support_files/Nagorno-Karabakh.png" alt="flag">
+                        <img src="./i18support_files/Namibia.png" alt="flag">
+                        <img src="./i18support_files/Nauru.png" alt="flag">
+                        <img src="./i18support_files/Nepal.png" alt="flag">
+                        <img src="./i18support_files/Netherlands-Antilles.png" alt="flag">
+                        <img src="./i18support_files/Netherlands.png" alt="flag">
+                        <img src="./i18support_files/New-Caledonia.png" alt="flag">
+                        <img src="./i18support_files/New-Zealand.png" alt="flag">
+                        <img src="./i18support_files/Nicaragua.png" alt="flag">
+                        <img src="./i18support_files/Niger.png" alt="flag">
+                        <img src="./i18support_files/Nigeria.png" alt="flag">
+                        <img src="./i18support_files/Niue.png" alt="flag">
+                        <img src="./i18support_files/Norfolk-Island.png" alt="flag">
+                        <img src="./i18support_files/North-Korea.png" alt="flag">
+                        <img src="./i18support_files/Northern-Cyprus.png" alt="flag">
+                        <img src="./i18support_files/Northern-Mariana-Islands.png" alt="flag">
+                        <img src="./i18support_files/Norway.png" alt="flag">
+                        <img src="./i18support_files/Olympics.png" alt="flag">
+                        <img src="./i18support_files/Oman.png" alt="flag">
+                        <img src="./i18support_files/Pakistan.png" alt="flag">
+                        <img src="./i18support_files/Palau.png" alt="flag">
+                        <img src="./i18support_files/Palestine.png" alt="flag">
+                        <img src="./i18support_files/Panama.png" alt="flag">
+                        <img src="./i18support_files/Papua-New-Guinea.png" alt="flag">
+                        <img src="./i18support_files/Paraguay.png" alt="flag">
+                        <img src="./i18support_files/Peru.png" alt="flag">
+                        <img src="./i18support_files/Philippines.png" alt="flag">
+                        <img src="./i18support_files/Pitcairn-Islands.png" alt="flag">
+                        <img src="./i18support_files/Poland.png" alt="flag">
+                        <img src="./i18support_files/Portugal.png" alt="flag">
+                        <img src="./i18support_files/Puerto-Rico.png" alt="flag">
+                        <img src="./i18support_files/Qatar.png" alt="flag">
+                        <img src="./i18support_files/Red-Cross.png" alt="flag">
+                        <img src="./i18support_files/Republic-of-the-Congo.png" alt="flag">
+                        <img src="./i18support_files/Romania.png" alt="flag">
+                        <img src="./i18support_files/Russia.png" alt="flag">
+                        <img src="./i18support_files/Rwanda.png" alt="flag">
+                        <img src="./i18support_files/Saint-Barthelemy.png" alt="flag">
+                        <img src="./i18support_files/Saint-Helena.png" alt="flag">
+                        <img src="./i18support_files/Saint-Kitts-and-Nevis.png" alt="flag">
+                        <img src="./i18support_files/Saint-Lucia.png" alt="flag">
+                        <img src="./i18support_files/Saint-Martin.png" alt="flag">
+                        <img src="./i18support_files/Saint-Vincent-and-the-Grenadines.png" alt="flag">
+                        <img src="./i18support_files/Samoa.png" alt="flag">
+                        <img src="./i18support_files/San-Marino.png" alt="flag">
+                        <img src="./i18support_files/Sao-Tome-and-Principe.png" alt="flag">
+                        <img src="./i18support_files/Saudi-Arabia.png" alt="flag">
+                        <img src="./i18support_files/Scotland.png" alt="flag">
+                        <img src="./i18support_files/Senegal.png" alt="flag">
+                        <img src="./i18support_files/Serbia.png" alt="flag">
+                        <img src="./i18support_files/Seychelles.png" alt="flag">
+                        <img src="./i18support_files/Sierra-Leone.png" alt="flag">
+                        <img src="./i18support_files/Singapore.png" alt="flag">
+                        <img src="./i18support_files/Slovakia.png" alt="flag">
+                        <img src="./i18support_files/Slovenia.png" alt="flag">
+                        <img src="./i18support_files/Solomon-Islands.png" alt="flag">
+                        <img src="./i18support_files/Somalia.png" alt="flag">
+                        <img src="./i18support_files/Somaliland.png" alt="flag">
+                        <img src="./i18support_files/South-Africa.png" alt="flag">
+                        <img src="./i18support_files/South-Georgia-and-the-South-Sandwich-Islands.png" alt="flag">
+                        <img src="./i18support_files/South-Korea.png" alt="flag">
+                        <img src="./i18support_files/South-Ossetia.png" alt="flag">
+                        <img src="./i18support_files/South-Sudan.png" alt="flag">
+                        <img src="./i18support_files/Spain(1).png" alt="flag">
+                        <img src="./i18support_files/Sri-Lanka.png" alt="flag">
+                        <img src="./i18support_files/Sudan.png" alt="flag">
+                        <img src="./i18support_files/Suriname.png" alt="flag">
+                        <img src="./i18support_files/Swaziland.png" alt="flag">
+                        <img src="./i18support_files/Sweden.png" alt="flag">
+                        <img src="./i18support_files/Switzerland.png" alt="flag">
+                        <img src="./i18support_files/Syria.png" alt="flag">
+                        <img src="./i18support_files/Taiwan.png" alt="flag">
+                        <img src="./i18support_files/Tajikistan.png" alt="flag">
+                        <img src="./i18support_files/Tanzania.png" alt="flag">
+                        <img src="./i18support_files/Thailand.png" alt="flag">
+                        <img src="./i18support_files/Togo.png" alt="flag">
+                        <img src="./i18support_files/Tokelau.png" alt="flag">
+                        <img src="./i18support_files/Tonga.png" alt="flag">
+                        <img src="./i18support_files/Trinidad-and-Tobago.png" alt="flag">
+                        <img src="./i18support_files/Tunisia.png" alt="flag">
+                        <img src="./i18support_files/Turkey.png" alt="flag">
+                        <img src="./i18support_files/Turkmenistan.png" alt="flag">
+                        <img src="./i18support_files/Turks-and-Caicos-Islands.png" alt="flag">
+                        <img src="./i18support_files/Tuvalu.png" alt="flag">
+                        <img src="./i18support_files/US-Virgin-Islands.png" alt="flag">
+                        <img src="./i18support_files/Uganda.png" alt="flag">
+                        <img src="./i18support_files/Ukraine.png" alt="flag">
+                        <img src="./i18support_files/United-Arab-Emirates.png" alt="flag">
+                        <img src="./i18support_files/United-Kingdom.png" alt="flag">
+                        <img src="./i18support_files/United-Nations.png" alt="flag">
+                        <img src="./i18support_files/United-States(1).png" alt="flag">
+                        <img src="./i18support_files/Unknown.png" alt="flag">
+                        <img src="./i18support_files/Uruguay.png" alt="flag">
+                        <img src="./i18support_files/Uzbekistan.png" alt="flag">
+                        <img src="./i18support_files/Vanuatu.png" alt="flag">
+                        <img src="./i18support_files/Vatican-City.png" alt="flag">
+                        <img src="./i18support_files/Venezuela.png" alt="flag">
+                        <img src="./i18support_files/Vietnam.png" alt="flag">
+                        <img src="./i18support_files/Wales.png" alt="flag">
+                        <img src="./i18support_files/Wallis-And-Futuna.png" alt="flag">
+                        <img src="./i18support_files/Western-Sahara.png" alt="flag">
+                        <img src="./i18support_files/Yemen.png" alt="flag">
+                        <img src="./i18support_files/Zambia.png" alt="flag">
+                        <img src="./i18support_files/Zimbabwe.png" alt="flag">
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div></body></html>
